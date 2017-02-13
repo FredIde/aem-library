@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: Dialog</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Namespace: Dialog</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="AEM.Library.Utilities.html">.Utilities</a>.</span>
+    
+    Dialog
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">A set of utilities to create and dialogs.</div>
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dialogutils.js.html">utilities/js/dialogutils.js</a>, <a href="dialogutils.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="createDialog"><span class="type-signature">&lt;static> </span>createDialog<span class="signature">(pathToDialog, success, failure)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new dialog.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pathToDialog</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">path to the xml file defining the dialog layout.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">function to run on success response from dialog save</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>failure</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">function to run on failure response from dialog save</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dialogutils.js.html">utilities/js/dialogutils.js</a>, <a href="dialogutils.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    a CQ dialog object.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="createSidekickDialog"><span class="type-signature">&lt;static> </span>createSidekickDialog<span class="signature">(pathToDialog, relPathToProperties, sidekickButtonText, index)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new dialog accessible through the sidekick.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pathToDialog</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">path to the xml file defining the dialog layout.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>relPathToProperties</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">relative path (starting with '/') to where dialog properties are stored.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sidekickButtonText</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">text for sidekick button that opens this dialog.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Integer</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">[optional] index of where to place this dialog's button in sidekick button list, defaults to end of list.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dialogutils.js.html">utilities/js/dialogutils.js</a>, <a href="dialogutils.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="loadDialog"><span class="type-signature">&lt;static> </span>loadDialog<span class="signature">(pathToDialog, pathToProperties)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create and show a new dialog.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pathToDialog</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">path to the xml file defining the dialog layout.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pathToProperties</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">path to where dialog properties are stored.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dialogutils.js.html">utilities/js/dialogutils.js</a>, <a href="dialogutils.js.html#line60">line 60</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="populateAndShowDialog"><span class="type-signature">&lt;static> </span>populateAndShowDialog<span class="signature">(dialog, pathToProperties)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Populate a dialog with properties and show it.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>dialog</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">dialog object to show.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pathToProperties</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">path to properties to use to populate dialog.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dialogutils.js.html">utilities/js/dialogutils.js</a>, <a href="dialogutils.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="validateField"><span class="type-signature">&lt;static> </span>validateField<span class="signature">(field, value, invalidMessage)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Validate a dialog field.  This requires the component being validated to have a validation servlet configured as
+outlined by the <a href="http://code.citytechinc.com/aem-library/servlets.html">User Guide</a>.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>field</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">dialog field being validated (i.e. 'this' if calling function within a validator)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">field value</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>invalidMessage</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">message to display if value is not valid</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dialogutils.js.html">utilities/js/dialogutils.js</a>, <a href="dialogutils.js.html#line112">line 112</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    true if valid, invalid message if invalid
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="CQ.Ext.form.SuperBoxSelect.html">SuperBoxSelect</a></li></ul><h3>Events</h3><ul><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:additem">additem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:beforeadditem">beforeadditem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:beforeremoveitem">beforeremoveitem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:clear">clear</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:newitem">newitem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:removeitem">removeitem</a></li></ul><h3>Namespaces</h3><ul><li><a href="AEM.html">AEM</a></li><li><a href="AEM.Library.Utilities.html">Utilities</a></li><li><a href="AEM.Library.Utilities.Dialog.html">Dialog</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addItem">addItem</a></li><li><a href="global.html#addNewItem">addNewItem</a></li><li><a href="global.html#allowAddNewData">allowAddNewData</a></li><li><a href="global.html#backspaceDeletesLastItem">backspaceDeletesLastItem</a></li><li><a href="global.html#classField">classField</a></li><li><a href="global.html#clearBtnCls">clearBtnCls</a></li><li><a href="global.html#clearValue">clearValue</a></li><li><a href="global.html#displayFieldTpl">displayFieldTpl</a></li><li><a href="global.html#expandBtnCls">expandBtnCls</a></li><li><a href="global.html#extraItemCls">extraItemCls</a></li><li><a href="global.html#extraItemStyle">extraItemStyle</a></li><li><a href="global.html#fixFocusOnTabSelect">fixFocusOnTabSelect</a></li><li><a href="global.html#forceFormValue">forceFormValue</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#getValueEx">getValueEx</a></li><li><a href="global.html#hasValue">hasValue</a></li><li><a href="global.html#itemDelimiterKey">itemDelimiterKey</a></li><li><a href="global.html#navigateItemsWithTab">navigateItemsWithTab</a></li><li><a href="global.html#pinList">pinList</a></li><li><a href="global.html#preventDuplicates">preventDuplicates</a></li><li><a href="global.html#queryValuesDelimiter">queryValuesDelimiter</a></li><li><a href="global.html#queryValuesIndicator">queryValuesIndicator</a></li><li><a href="global.html#removeValuesFromStore">removeValuesFromStore</a></li><li><a href="global.html#renderFieldBtns">renderFieldBtns</a></li><li><a href="global.html#setValue">setValue</a></li><li><a href="global.html#setValueEx">setValueEx</a></li><li><a href="global.html#stackItems">stackItems</a></li><li><a href="global.html#styleField">styleField</a></li><li><a href="global.html#supressClearValueRemoveEvents">supressClearValueRemoveEvents</a></li><li><a href="global.html#validationEvent">validationEvent</a></li><li><a href="global.html#valueDelimiter">valueDelimiter</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.3-dev</a> on Mon Feb 13 2017 11:48:36 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

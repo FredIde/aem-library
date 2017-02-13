@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utilities/js/dialogutils.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: utilities/js/dialogutils.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/**
+ * A set of utilities to create and dialogs.
+ *
+ * @namespace
+ */
+AEM.Library.Utilities.Dialog = {
+
+    /**
+     * Create a new dialog.
+     *
+     * @param pathToDialog  path to the xml file defining the dialog layout.
+     * @param {Function} success function to run on success response from dialog save
+     * @param {Function} failure function to run on failure response from dialog save
+     * @returns a CQ dialog object.
+     */
+    createDialog: function (pathToDialog, success, failure) {
+        // set up dialog configuration
+        var dialogConfig = CQ.WCM.getDialogConfig(pathToDialog);
+
+        if (success) {
+            dialogConfig.success = success;
+        } else {
+            dialogConfig.success = function (form, action) {
+                // reload page on dialog success
+                CQ.Util.reload(CQ.WCM.getContentWindow());
+            };
+        }
+
+        if (failure) {
+            dialogConfig.failure = failure;
+        } else {
+            dialogConfig.failure = function (form, action) {
+                // alert user when dialog fails
+                var resp = CQ.HTTP.buildPostResponseFromHTML(action.response);
+                CQ.Ext.Msg.alert(resp.headers[CQ.HTTP.HEADER_MESSAGE]);
+            };
+        }
+
+        // get dialog
+        return CQ.WCM.getDialog(dialogConfig, pathToDialog);
+    },
+
+    /**
+     * Populate a dialog with properties and show it.
+     *
+     * @param dialog            dialog object to show.
+     * @param pathToProperties  path to properties to use to populate dialog.
+     */
+    populateAndShowDialog: function (dialog, pathToProperties) {
+        dialog.loadContent(pathToProperties);
+        dialog.show();
+    },
+
+    /**
+     * Create and show a new dialog.
+     *
+     * @param {String} pathToDialog path to the xml file defining the dialog layout.
+     * @param {String} pathToProperties  path to where dialog properties are stored.
+     */
+    loadDialog: function (pathToDialog, pathToProperties) {
+        var dialog = createDialog(pathToDialog);
+        populateAndShowDialog(dialog, pathToProperties);
+    },
+
+    /**
+     * Create a new dialog accessible through the sidekick.
+     *
+     * @param {String} pathToDialog path to the xml file defining the dialog layout.
+     * @param {String} relPathToProperties relative path (starting with '/') to where dialog properties are stored.
+     * @param {String} sidekickButtonText text for sidekick button that opens this dialog.
+     * @param {Integer} index [optional] index of where to place this dialog's button in sidekick button list, defaults to end of list.
+     */
+    createSidekickDialog: function (pathToDialog, relPathToProperties, sidekickButtonText, index) {
+        var sidekickAction = {
+            context: CQ.wcm.Sidekick.PAGE,
+            text: sidekickButtonText,
+            handler: function () {
+                loadDialog(pathToDialog, this.getPath() + relPathToProperties);
+            }
+        };
+
+        // apply custom sidekick action to sidekick
+        var topWindow = CQ.WCM.getTopWindow();
+        var defaultActions = topWindow ? topWindow.CQ.wcm.Sidekick.DEFAULT_ACTIONS : CQ.wcm.Sidekick.DEFAULT_ACTIONS;
+
+        // clobber any other actions with the same text and context
+        for (var i = defaultActions.length - 1; i >= 0; i--) {
+            var action = defaultActions[i];
+            if (action.context === sidekickAction.context && action.text === sidekickAction.text) {
+                defaultActions.splice(i, 1);
+            }
+        }
+
+        if (typeof index !== 'undefined') {
+            // index has been specified, splice button into correct location
+            defaultActions.splice(index, 0, sidekickAction);
+        } else {
+            // no index, push it to end of sidekick actions
+            defaultActions.push(sidekickAction);
+        }
+    },
+
+    /**
+     * Validate a dialog field.  This requires the component being validated to have a validation servlet configured as
+     * outlined by the &lt;a href="http://code.citytechinc.com/aem-library/servlets.html">User Guide&lt;/a>.
+     *
+     * @param field dialog field being validated (i.e. 'this' if calling function within a validator)
+     * @param value field value
+     * @param invalidMessage message to display if value is not valid
+     * @returns {boolean} true if valid, invalid message if invalid
+     */
+    validateField: function (field, value, invalidMessage) {
+        var dialog = field.findParentByType('dialog');
+
+        var url = CQ.HTTP.addParameter(dialog.path + '.validator.json', 'value', value);
+
+        var result = CQ.HTTP.eval(url);
+
+        return result.valid ? true : invalidMessage;
+    }
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="CQ.Ext.form.SuperBoxSelect.html">SuperBoxSelect</a></li></ul><h3>Events</h3><ul><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:additem">additem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:beforeadditem">beforeadditem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:beforeremoveitem">beforeremoveitem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:clear">clear</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:newitem">newitem</a></li><li><a href="CQ.Ext.form.SuperBoxSelect.html#event:removeitem">removeitem</a></li></ul><h3>Namespaces</h3><ul><li><a href="AEM.html">AEM</a></li><li><a href="AEM.Library.Utilities.html">Utilities</a></li><li><a href="AEM.Library.Utilities.Dialog.html">Dialog</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addItem">addItem</a></li><li><a href="global.html#addNewItem">addNewItem</a></li><li><a href="global.html#allowAddNewData">allowAddNewData</a></li><li><a href="global.html#backspaceDeletesLastItem">backspaceDeletesLastItem</a></li><li><a href="global.html#classField">classField</a></li><li><a href="global.html#clearBtnCls">clearBtnCls</a></li><li><a href="global.html#clearValue">clearValue</a></li><li><a href="global.html#displayFieldTpl">displayFieldTpl</a></li><li><a href="global.html#expandBtnCls">expandBtnCls</a></li><li><a href="global.html#extraItemCls">extraItemCls</a></li><li><a href="global.html#extraItemStyle">extraItemStyle</a></li><li><a href="global.html#fixFocusOnTabSelect">fixFocusOnTabSelect</a></li><li><a href="global.html#forceFormValue">forceFormValue</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#getValueEx">getValueEx</a></li><li><a href="global.html#hasValue">hasValue</a></li><li><a href="global.html#itemDelimiterKey">itemDelimiterKey</a></li><li><a href="global.html#navigateItemsWithTab">navigateItemsWithTab</a></li><li><a href="global.html#pinList">pinList</a></li><li><a href="global.html#preventDuplicates">preventDuplicates</a></li><li><a href="global.html#queryValuesDelimiter">queryValuesDelimiter</a></li><li><a href="global.html#queryValuesIndicator">queryValuesIndicator</a></li><li><a href="global.html#removeValuesFromStore">removeValuesFromStore</a></li><li><a href="global.html#renderFieldBtns">renderFieldBtns</a></li><li><a href="global.html#setValue">setValue</a></li><li><a href="global.html#setValueEx">setValueEx</a></li><li><a href="global.html#stackItems">stackItems</a></li><li><a href="global.html#styleField">styleField</a></li><li><a href="global.html#supressClearValueRemoveEvents">supressClearValueRemoveEvents</a></li><li><a href="global.html#validationEvent">validationEvent</a></li><li><a href="global.html#valueDelimiter">valueDelimiter</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.3-dev</a> on Mon Feb 13 2017 11:48:36 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
